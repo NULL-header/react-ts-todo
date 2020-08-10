@@ -1,13 +1,5 @@
 import React from "react";
-import { CssBaseline } from "@material-ui/core";
-import { MuiThemeProvider } from "@material-ui/core/styles";
 
-import { TodoContainer } from "./components/TodoContainer";
-import { theme } from "./theme";
+import { ThemeContainer } from "./components/GrandContainer";
 
-export const App = () => (
-  <MuiThemeProvider theme={theme}>
-    <CssBaseline />
-    <TodoContainer />
-  </MuiThemeProvider>
-);
+export const App = () => <ThemeContainer />;

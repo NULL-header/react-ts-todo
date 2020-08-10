@@ -2,6 +2,9 @@ import { createMuiTheme, colors } from "@material-ui/core";
 
 export const theme = createMuiTheme({
   palette: {
-    primary: colors.blueGrey,
+    primary: colors.orange,
+    secondary: {
+      main: "#fff9b5",
+    },
   },
 });

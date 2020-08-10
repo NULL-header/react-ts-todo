@@ -5,19 +5,42 @@ import { TodoInputPlace } from "../TodoInputPlace";
 import { TodoList, TodoListProps, TodoListDetails } from "../TodoList";
 // eslint-disable-next-line no-unused-vars
 import { TodoItemProps, TodoItemDetail } from "../TodoItem";
+import { useStyles } from "./style";
 // eslint-disable-next-line no-unused-vars
 import update, { Spec } from "immutability-helper";
 
-import { Container, Typography } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 
-type History = TodoListDetails[];
+type TodoHistory = TodoListDetails[];
 
-export const TodoContainer = () => {
-  const [history, setHistory] = useState<History>([{ items: [] }]);
+// to test value
+// Fix to adjust this with regular making mock item
+const mockValue: TodoHistory = [
+  { items: [] },
+  { items: [{ completed: false, id: 1001, title: "first mock item" }] },
+  {
+    items: [
+      { completed: false, id: 1001, title: "first mock item" },
+      {
+        completed: false,
+        id: 1002,
+        title: "second mock itemaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      },
+    ],
+  },
+];
+
+interface TodoContainerProps {
+  className?: string;
+}
+
+export const TodoContainer: React.SFC<TodoContainerProps> = (props) => {
+  const [history, setHistory] = useState<TodoHistory>(mockValue);
 
   const currentIndex = history.length - 1;
   const current = history[currentIndex];
   const numItems = current.items.length;
+  const classes = useStyles();
 
   const updateHistory = ($spec: Spec<TodoListDetails, never>) => {
     const nextCurrent = update(current, $spec);
@@ -42,20 +65,22 @@ export const TodoContainer = () => {
   console.log(history);
 
   return (
-    <Container maxWidth="xs">
-      <div className="todoapp">
-        <TodoInputPlace addItemMethod={addItem} />
-        <div id="js-todo-items" className="todo-list">
-          <TodoList
-            items={current.items}
-            changeItemMethod={changeItem}
-            deleteItemMethod={deleteItem}
-          />
-        </div>
-        <footer className="footer">
+    <div className={props.className}>
+      <Container className={classes.root}>
+        <TodoInputPlace
+          addItemMethod={addItem}
+          className={classes.inputPlace}
+        />
+        <TodoList
+          className={classes.list}
+          items={current.items}
+          changeItemMethod={changeItem}
+          deleteItemMethod={deleteItem}
+        />
+        <footer>
           <span id="js-todo-count">Todoアイテム数：{numItems}</span>
         </footer>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 };

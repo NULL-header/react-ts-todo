@@ -11,6 +11,7 @@
     "skipLibCheck": true /* Skip type checking of declaration files. */,
     "moduleResolution": "node",
     "lib": ["ES6", "DOM"],
+    "sourceMap": true,
     "types": ["node"],
     "typeRoots": ["node_module/@types"],
     "experimentalDecorators": true,

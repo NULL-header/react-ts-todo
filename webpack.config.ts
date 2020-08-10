@@ -1,5 +1,6 @@
 import path from "path";
 import webpack from "webpack";
+import "webpack-dev-server";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import packageJSON from "./package.json";
@@ -7,7 +8,13 @@ const webpackConfig = (env: {
   production: any;
   development: any;
 }): webpack.Configuration => ({
-  entry: "./src/index.tsx",
+  mode: "development",
+  entry: [
+    "react-hot-loader/patch",
+    "webpack/hot/only-dev-server",
+    path.resolve(__dirname, "./src/index.tsx"),
+  ],
+  devtool: "#inline-source-map",
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
   },
