@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 
-import { TodoInputPlace } from "../TodoInputPlace";
-// eslint-disable-next-line no-unused-vars
-import { TodoList, TodoListProps, TodoListDetails } from "../TodoList";
 // eslint-disable-next-line no-unused-vars
 import { TodoItemProps, TodoItemDetail } from "../TodoItem";
 import { useStyles } from "./style";
@@ -10,6 +7,11 @@ import { useStyles } from "./style";
 import update, { Spec } from "immutability-helper";
 
 import { Container } from "@material-ui/core";
+
+import { TodoInputPlace } from "../TodoInputPlace";
+// eslint-disable-next-line no-unused-vars
+import { TodoList, TodoListProps, TodoListDetails } from "../TodoList";
+import { PassageTitle } from "../PassageTitle";
 
 type TodoHistory = TodoListDetails[];
 

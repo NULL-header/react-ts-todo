@@ -1,5 +1,5 @@
 import React from "react";
 
-import { ThemeContainer } from "./components/GrandContainer";
+import { ThemeContainer } from "./components/ThemeContainer";
 
 export const App = () => <ThemeContainer />;

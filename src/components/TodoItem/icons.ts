@@ -2,7 +2,7 @@ import { withStyles } from "@material-ui/core";
 import Check from "@material-ui/icons/Check";
 import Delete from "@material-ui/icons/DeleteOutlined";
 
-export interface ChildProps {
+export interface Props {
   checked: boolean;
 }
 
@@ -11,7 +11,7 @@ export const CheckIcon = withStyles((theme) => {
     root: {
       marginRight: 5,
       marginLeft: 0,
-      visibility: (props: ChildProps) => (props.checked ? "unset" : "hidden"),
+      visibility: (props: Props) => (props.checked ? "unset" : "hidden"),
     },
   };
 })(Check);

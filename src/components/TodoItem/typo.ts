@@ -1,6 +1,6 @@
 import { withStyles, Typography } from "@material-ui/core";
 // eslint-disable-next-line no-unused-vars
-import { ChildProps } from "./icons";
+import { Props } from "./icons";
 
 export const Title = withStyles((theme) => {
   return {
@@ -9,7 +9,7 @@ export const Title = withStyles((theme) => {
       marginLeft: 10,
       marginRight: 10,
       flexGrow: 1,
-      textDecoration: (props: ChildProps) =>
+      textDecoration: (props: Props) =>
         props.checked ? "line-through" : "none",
     },
   };

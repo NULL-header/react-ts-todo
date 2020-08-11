@@ -17,6 +17,7 @@ export const Tabs: React.SFC<TabsProps> = (props) => {
     event: React.MouseEvent<HTMLElement>,
     label: string
   ) => {
+    if (label == null) return;
     props.onClickTab(label);
   };
 
