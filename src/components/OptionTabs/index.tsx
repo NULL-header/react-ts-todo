@@ -6,18 +6,18 @@ import SecondaryIcon from "@material-ui/icons/WidgetsRounded";
 import { useStyles } from "./style";
 interface OptionTabsProps {
   className?: string;
+  onClick: (arg: string) => void;
 }
 
 export const OptionTabs: React.SFC<OptionTabsProps> = (props) => {
   const classes = useStyles();
-
   const primaryButton = (
-    <Fab>
+    <Fab onClick={() => props.onClick("primary")}>
       <PrimaryIcon />
     </Fab>
   );
   const secondaryButton = (
-    <Fab>
+    <Fab onClick={() => props.onClick("secondary")}>
       <SecondaryIcon />
     </Fab>
   );

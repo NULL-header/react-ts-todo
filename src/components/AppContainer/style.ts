@@ -4,11 +4,12 @@ interface Props {
   tab: string;
 }
 
-const containerProps = (name: string) => ({
-  flexGrow: 1,
-  overflow: "hidden",
-  display: (props: Props) => (props.tab === name ? "initial" : "none"),
-});
+const containerProps = (name: string) =>
+  ({
+    flexGrow: 1,
+    overflow: "hidden",
+    display: (props: Props) => (props.tab === name ? "initial" : "none"),
+  } as const);
 
 export const useStyles = makeStyles((theme) => {
   return createStyles({

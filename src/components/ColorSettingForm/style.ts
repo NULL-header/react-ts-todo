@@ -7,9 +7,8 @@ interface Props {
 
 export const useStyles = makeStyles((theme) => {
   return {
-    clause: {
-      display: (props: Props) =>
-        props.settedName === props.currentName ? "initial" : "none",
+    palette: {
+      height: "100%",
     },
   };
 });

@@ -37,11 +37,28 @@ export const ThemeContainer: React.SFC<GrangComtainerProps> = (props) => {
     setThemeProps(next);
   };
 
+  const setPrimaryColor = (color: string) => {
+    const next = update(currentThemeProp, {
+      palette: { primary: { main: { $set: color } } },
+    });
+    setTheme(next);
+  };
+
+  const setSecondaryColor = (color: string) => {
+    const next = update(currentThemeProp, {
+      palette: { secondary: { main: { $set: color } } },
+    });
+    setTheme(next);
+  };
+
   return (
     <div className={props.className} style={{ height: "inherit" }}>
       <MuiThemeProvider theme={currentTheme}>
         <CssBaseline />
-        <AppContainer />
+        <AppContainer
+          primaryMethod={setPrimaryColor}
+          secondaryMethod={setSecondaryColor}
+        />
       </MuiThemeProvider>
     </div>
   );
